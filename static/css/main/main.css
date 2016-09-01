@@ -1,0 +1,74 @@
+.header-top.lead {
+    margin-bottom: 7px;
+}
+.sell .sell-form {
+    border-style: solid;
+    border-bottom-color: #ff0000;
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+.main .left-side { background-color: #ddd;}
+.main .right-side a {color: #000;}
+.advantage{margin-top: 10px;}
+
+.circle{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 1px solid rgba(100,149,237,.5);
+  background: rgba(255,235,205,.5);
+
+}
+.circle1{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(100,149,237,.5);
+  background: rgba(255,235,205,.5);
+
+}
+
+.drop{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 1px solid rgba(100,149,237,.5);
+  background: rgba(255,235,205,.5);
+
+}
+.news_action{}
+.border_full{border: solid 1px black;}
+
+.bottom-side a{color: red}
+
+/*decoration*/
+.underline{text-decoration:underline;}
+
+/*color*/
+.orange_back{background-color: #ff9900;}
+.black{color:black;}
+.green_back{background-color:#00cc00;}
+.blue_back{background-color:#1da6e6;}
+.salat_back{background-color: #cbec79;}
+.red{color:red;}
+.blue_white_back {background-color: #d2f0fb;  }
+/*sizi*/
+.button_height{height: 40px;}
+.height_link_footer{margin-top: 40px;}
+.line-height{line-height: 18px;}
+
+.paid{height: 80px;}
+
+
+
+
+.carousel-inner > .item {
+    height: 500px !important;
+}
+
+.slider img {
+    width: 775px !important;
+    height: 500px !important;
+}
