@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.db import models
 from django.forms import ModelForm
 
-from .models import Place
+from .models import Place, Photo
 
 #from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django_mptt_admin.admin import DjangoMpttAdmin
@@ -15,6 +15,12 @@ class PageForm(ModelForm):
             'description': RedactorWidget(editor_options={'lang': 'en'})
         }
 
+
+class PhotoAdmin(admin.StackedInline):
+    model = Photo
+    extra = 0
+
+
 class PlaceAdmin(DjangoMpttAdmin):
     form = PageForm
     class Meta:
@@ -24,8 +30,11 @@ class PlaceAdmin(DjangoMpttAdmin):
     list_display = ('name',)
     ordering = ('name',)
 
+    inlines = [PhotoAdmin]
+
     # formfield_overrides = {
     #     models.TextField: {'widget': AdminRedactorEditor}
-    # }
+    # }    
 
 admin.site.register(Place, PlaceAdmin)
+admin.site.register(Photo)

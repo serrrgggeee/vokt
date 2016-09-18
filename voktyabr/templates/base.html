@@ -68,10 +68,10 @@
                     {% recursetree categories %}
                             {% if  node.is_root_node %}
 
-                                <li><a class="underline parent" href="/category/{{ node.id }}">{{ node.name }}</a></li>
+                                <li><a class="underline parent" href="/single_place/{{node.id}}">{{ node.name }}</a></li>
                             {% endif %}
                             {% if not node.is_root_node %}
-                                <li class="child"><a class="children" href="">{{ node.name }}</a></li>
+                                <li class="child"><a class="children" href="/single_place/{{node.id}}">{{ node.name }}</a></li>
                             {% endif %}
                             {% if not node.is_leaf_node %}
                                 {{ children }}

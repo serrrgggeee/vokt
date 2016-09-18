@@ -6,30 +6,33 @@
         <div class="col-md-11 col-md-offset-1">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
+                <!--<ol class="carousel-indicators">-->
+                    <!--<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>-->
+                    <!--<li data-target="#carousel-example-generic" data-slide-to="1"></li>-->
+                    <!--<li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
+                <!--</ol>-->
                 <div class="carousel-inner" role="listbox">
                 <!-- Wrapper for slides -->
                 {% for node in  categories %}
                     {% if forloop.first %}
                          <div class="item active">
-                            <a href="/single_place/{{node.id}}"><img class="col-md-12" alt="Logo" src="{{ node.image_description.url }}" width="750px" height="500">
+                            <a href="/single_place/{{node.id}}">
+                                <img class="col-md-12" alt="Logo" src="{{ node.image_description.url }}" width="750px" height="500">
 
-                            <div class="carousel-caption">
-                                <p class="labale">{{node.name}} {{node.type_place}}</p>
-                            </div></a>
+                                <div class="col-md-10 col-md-offset-1">
+                                    <p class="text-center labale">{{node.name}} {{node.type_place}}</p>
+                                </div>
+                            </a>
                         </div>
                     {% else %}
                     <div class="item">
                         <a href="/single_place/{{node.id}}">
-                        <img class="col-md-12"  alt="Logo" src="{{ node.image_description.url }}" width="750px" height="500">
+                            <img class="col-md-12"  alt="Logo" src="{{ node.image_description.url }}" width="750px" height="500">
 
-                        <div class="carousel-caption">
-                            <p class="labale">{{node.type_place}} {{node.name}}</p>
-                        </div></a>
+                            <div class="col-md-10 col-md-offset-1">
+                                <p class="text-center labale">{{node.type_place}} {{node.name}}</p>
+                            </div>
+                        </a>
                     </div>
 
                     {% endif %}
