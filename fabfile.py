@@ -8,9 +8,9 @@ import os
 
 env.project = _AttributeDict({
     'name': 'serrrgggeee',
-    'username': 'serrrgggeee',  # group assumed to be the same
+    'username': 'root',  # group assumed to be the same
     'src_repo': 'git@bitbucket.org:serrrgggeee/voktyabr.git',
-    'reqs': 'requirements.txt',
+    'reqs': 'requirement.txt',
     'src_dir': 'source_tmp',  # rel from home
     'src_web': 'voktyabr',  # rel from home
     'src_branch': 'master',
@@ -58,7 +58,7 @@ def loc():
 def prod():
     env.type = 'prod'
     env.hosts = [
-        'root@78.155.219.56'
+        'root@37.46.130.147'
     ]
     co_branch()
     push()
@@ -78,6 +78,9 @@ def web():
 def complete_deploy():
     setup.complete()
 
+@task
+def cmdrun(arg):
+    run(arg)
 
 try:
     from fabfile_local import *

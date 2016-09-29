@@ -16,7 +16,7 @@ libbz2-dev
 libmhash-dev
 libcurl4-openssl-dev
 libpng12-dev
-libXpm-dev
+
 libc-client-dev
 libmcrypt-dev
 libedit-dev

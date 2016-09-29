@@ -140,7 +140,7 @@ def python():
     pip = '%s/bin/pip' % venv
     with cd(home):
         if not fabtools.files.is_dir(venv):
-            sudo_project('virtualenv --python=python3.4 %s' % venv)
+            sudo_project('virtualenv --python=python3.5 %s' % venv)
             sudo_project('%s install --upgrade pip' % pip)
             # Fucking PIL. HACK
             with settings(hide('running', 'stdout', 'stderr'), warn_only=True):
@@ -150,7 +150,7 @@ def python():
         reqs = '%s/%s' % (path, env.project.reqs)
         cache_dir = os.path.join(home, env.project.pip_cache)
         fabtools.require.directory(cache_dir, use_sudo=True, owner=env.project.username, group=env.project.username)
-        sudo_project('{pip} install -r {reqs} --no-use-wheel --download-cache={cache}'.format(pip=pip, reqs=reqs, cache=cache_dir))
+        sudo_project('{pip} install -r {reqs}  --no-binary :all'.format(pip=pip, reqs=reqs))
         pers_dirs = env.project.get('persistent_dirs', [])
         process_persistent_dirs(pers_dirs)
 
@@ -349,12 +349,14 @@ def rabbitmq():
 
 @task
 def full():
+    print(env.project.home, env.project.src_dir)
     src_path = os.path.join(env.project.home, env.project.src_dir)
+    print(src_path)
     env.src_path = src_path
 
-    require_packages(os.path.join(os.path.dirname(DOCS_DIR), 'apt_web.txt'))
+    ##require_packages(os.path.join(os.path.dirname(DOCS_DIR), 'apt_web.txt'))
 
-    project_user()
+    #project_user()
 
     python()
 
