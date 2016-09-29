@@ -1,0 +1,83 @@
+{% load default %}
+
+<footer class="js--page-footer">
+    <div class="footer-widgets">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12  col-sm-3">
+                    <div class="footer-widgets__social">
+                        <img class="push-down-10" alt="Footer Logo" src="{{ STATIC_URL }}theme/images/logo-footer.png" />
+
+                        <p class="push-down-15">Оптовая продажа овощей открытого грунта – свекла, капуста, морковь, лук, кабачки, картофель.</p>
+                        <p class="push-down-15"><a href="/license/" target="_blank">Политика конфиденциальности</a></p>
+                        {% comment %}<a class="social-container" href="https://www.facebook.com/ProteusNet"><span
+                                class="zocial-facebook"></span></a>
+                        <a class="social-container" href="https://twitter.com/ProteusNetCom"><span
+                                class="zocial-twitter"></span></a>
+                        <a class="social-container" href="#"><span class="zocial-email"></span></a>
+                        <a class="social-container" href="http://www.youtube.com/user/ProteusNetCompany"><span
+                                class="zocial-youtube"></span></a>{% endcomment %}
+                    </div>
+                </div>
+                <div class="col-xs-12  col-sm-6">
+                    <nav class="footer-widgets__navigation">
+                        <div class="footer-wdgets__heading--line">
+                            <h4 class="footer-widgets__heading">{{ landing_form_title|default:"Заказать обратный звонок" }}</h4>
+                        </div>
+                        {% include 'landing/includes/order.html' %}
+                    </nav>
+                    {% comment %}<nav class="footer-widgets__navigation">
+                        <div class="footer-wdgets__heading--line">
+                            <h4 class="footer-widgets__heading">Навигация</h4>
+                        </div>
+                        <ul class="nav nav-footer">
+                            <li><a href="{% url "home" %}">Главная</a></li>
+                            <li><a href="{% url "destinations" %}">Продукция</a></li>
+                            <li><a href="{% url "delivery" %}">Доставка</a></li>
+                            <li><a href="{% url 'order' %}">Оплата</a></li>
+                            <li><a href="{% url 'document' %}">Документы</a></li>
+                            <li><a href="{% url 'reviews' %}">Отзывы</a></li>
+                            <li><a href="{% url 'about' %}">О нас</a></li>
+                            <li><a href="{% url 'feedback' %}">Контакты</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-xs-12  col-sm-3">
+                    <div class="footer-widgets__navigation">
+                        <div class="footer-wdgets__heading--line">
+                            <h4 class="footer-widgets__heading">Популярное</h4>
+                        </div>
+                        {% tags %}
+                    </div>{% endcomment %}
+                </div>
+                <div class="col-xs-12  col-sm-3">
+                    <div class="footer-widgets__navigation">
+                        <div class="footer-wdgets__heading--line">
+                            <h4 class="footer-widgets__heading">Контакты</h4>
+                        </div>
+                        {% comment %}<a class="footer__link" href="#"><span
+                                class="glyphicon glyphicon-earphone glyphicon--footer"></span> +7-981-755-5386</a><br>{% endcomment %}
+                        <a class="footer__link" href="#"><span
+                                class="glyphicon glyphicon-earphone glyphicon--footer"></span> +7 (981) 143-18-90</a><br>
+                        <a class="footer__link" href="#"><span
+                                class="glyphicon glyphicon-envelope glyphicon--footer"></span> info@optoplan.ru</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12  col-sm-6">
+                    <div class="footer__text--link">
+                        © Copyright 2014
+                    </div>
+                </div>
+                <div class="col-xs-12  col-sm-6">
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+{% include 'includes/counters.html' %}
