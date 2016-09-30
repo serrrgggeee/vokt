@@ -1,0 +1,18 @@
+#!/bin/bash
+PATH=/usr/kerberos/sbin:/usr/kerberos/bin:/usr/bin:/bin:/usr/local/bin/:/home/voktyabr/vokt/bin/
+curdir=/home/voktyabr/
+
+case "$1" in
+"start")
+${curdir}vokt/bin/uwsgi --ini ${curdir}voktyabr/deploy_assets/uwsgi.ini
+;;
+"stop")
+kill -9 `cat /tmp/django-voktyabr.pid`
+;;
+"restart")
+$0 stop
+sleep 1
+$0 start
+;;
+*) echo "Usage: ./server.sh {start|stop|restart}";;
+esac

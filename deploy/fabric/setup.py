@@ -44,13 +44,18 @@ def require_packages(requirements_path):
 def project_user():
     username = env.project.username
     home = '/home/%s' % username
+
     if not fabtools.user.exists(username):
         fabtools.user.create(username, home=home, shell='/bin/bash')
-    fabtools.require.directory(home, owner=username, group=username, use_sudo=True)
 
-    sudo('chgrp %s /opt ' % username)
-    sudo('chmod 775 /opt')
+    fabtools.require.directory(home, owner=username, group=username,
+                               use_sudo=True)
 
+    # sudo('chgrp %s /opt ' % username)
+    # sudo('chmod 775 /opt')
+
+    fabtools.require.directory('/var/log/%s' % username, owner=username,
+                               group=username, use_sudo=True)
 
 def supervisord():
     # Supervisord
@@ -86,7 +91,6 @@ def mongodb():
 def nginx():
     fabtools.require.deb.ppa('ppa:nginx/stable')
     fabtools.require.deb.package('nginx', update=True)
-
     copy_file(
         src=os.path.join(env.src_path, 'deploy/nginx.conf'),
         dst='/etc/nginx/sites-enabled/voktyabr.conf'
@@ -140,7 +144,7 @@ def python():
     pip = '%s/bin/pip' % venv
     with cd(home):
         if not fabtools.files.is_dir(venv):
-            sudo_project('virtualenv --python=python3.5 %s' % venv)
+            sudo_project('virtualenv --python=python3.4 %s' % venv)
             sudo_project('%s install --upgrade pip' % pip)
             # Fucking PIL. HACK
             with settings(hide('running', 'stdout', 'stderr'), warn_only=True):
@@ -270,11 +274,11 @@ def make_persistent():
 
 def copy_settings(src_path):
     sudo('cp -f {src} {dst}'.format(src=src_path+'/deploy/settings.py', dst=src_path+'/voktyabr/voktyabr/local_settings.py'))
-    sudo('cp -f {src} {dst}'.format(src=src_path+'/server.voktyabr', dst='/etc/init.d/server.voktyabr'))
-    sudo('chmod 755 /etc/init.d/server.voktyabr')
+    sudo('cp -f {src} {dst}'.format(src=src_path+'/server.vokt', dst='/etc/init.d/server.vokt'))
+    sudo('chmod 755 /etc/init.d/server.vokt')
 
-    if not exists('/etc/rc1.d/K20server.voktyabr'):
-        sudo('update-rc.d server.voktyabr defaults')
+    if not exists('/etc/rc1.d/K20server.vokt'):
+        sudo('update-rc.d server.vokt defaults')
 
 
 def restart_service(name):
@@ -356,15 +360,15 @@ def full():
 
     ##require_packages(os.path.join(os.path.dirname(DOCS_DIR), 'apt_web.txt'))
 
-    #project_user()
+    ##project_user()
 
-    python()
+    ##python()
 
-    nginx()
+    ##nginx()
     # pgbouncer()
-    postgresql()
+    ##postgresql()
     #redis()
-    supervisord()
+    ##supervisord()
     ## mongodb()
     #rabbit()
 
@@ -374,18 +378,15 @@ def full():
 
     src_path = env.src_path = copy_project(src_path)
     env.project.manage = os.path.join(src_path, 'voktyabr', 'manage.py')
-
     venv = os.path.join(env.project.home, env.project.venv)
     with fabtools.python.virtualenv(venv):
         fabtools.require.python.requirements(
             os.path.join(src_path, env.project.reqs),
             use_sudo=True,
-            user=env.project.username,
-            download_cache=os.path.join(env.project.home, env.project.pip_cache)
+            user=env.project.username
         )
-
     copy_settings(src_path)
-
+    print('copydone')
     make_links(src_path)
 
     make_static(src_path)
