@@ -36,7 +36,8 @@ env.project.pip = os.path.join(env.project.home, env.project.venv,
                                'bin', 'pip')
 env.project.python = os.path.join(env.project.home, env.project.venv,
                                   'bin', 'python')
-
+PGHOST='localhost'
+run('export PGHOST=localhost')
 
 def co_branch():
     local('git checkout {branch}'.format(branch=env.project.src_branch))
