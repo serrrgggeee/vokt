@@ -77,8 +77,8 @@ def postgresql():
     sudo('wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | apt-key add -')
     fabtools.require.deb.source('pgdg', 'http://apt.postgresql.org/pub/repos/apt/', 'precise-pgdg', 'main')
     fabtools.require.postgres.server(version='9.5')
-    fabtools.require.postgres.user('serrrgggeee', 'Tktyf,firjdf1')
-    fabtools.require.postgres.database('vokt', owner='serrrgggeee')
+    #fabtools.require.postgres.user('serrrgggeee', 'Tktyf,firjdf1')
+    fabtools.require.postgres.database('vokt', owner='postgres')
 
 
 def mongodb():
@@ -357,15 +357,15 @@ def full():
     src_path = os.path.join(env.project.home, env.project.src_dir)
     env.src_path = src_path
 
-    ##require_packages(os.path.join(os.path.dirname(DOCS_DIR), 'apt_web.txt'))
+    require_packages(os.path.join(os.path.dirname(DOCS_DIR), 'apt_web.txt'))
 
-    ##project_user()
+    project_user()
 
-    ##python()
+    python()
 
     ##nginx()
     # pgbouncer()
-    ##postgresql()
+    postgresql()
     #redis()
     ##supervisord()
     ## mongodb()
