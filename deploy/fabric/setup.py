@@ -2,7 +2,6 @@ import os
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS_DIR = os.path.join(PROJECT_DIR)
-print DOCS_DIR
 import fabtools
 from fabric.api import *
 import rabbit as rabbit_require
@@ -186,6 +185,7 @@ def process_persistent_dirs(conf_list):
 
 
 def make_static(src_path):
+    print('copydone')
     with cd(src_path):
         manage('collectstatic --noinput --ignore=cache --ignore=upload --ignore=multiuploader_images')
 
@@ -195,6 +195,7 @@ def copy_project(src_path):
     with settings(hide('stdout'), warn_only=True):
         sudo('rm -rf %s' % copied_src)
     sudo_project('cp -R %s %s' % (src_path, copied_src))
+    print('hier')
     return copied_src
 
 
@@ -274,7 +275,7 @@ def make_persistent():
 
 def copy_settings(src_path):
     sudo('cp -f {src} {dst}'.format(src=src_path+'/deploy/settings.py', dst=src_path+'/voktyabr/voktyabr/local_settings.py'))
-    sudo('cp -f {src} {dst}'.format(src=src_path+'/server.vokt', dst='/etc/init.d/server.vokt'))
+    sudo('cp -f {src} {dst}'.format(src=src_path+'/deploy/server.vokt', dst='/etc/init.d/server.vokt'))
     sudo('chmod 755 /etc/init.d/server.vokt')
 
     if not exists('/etc/rc1.d/K20server.vokt'):
@@ -353,9 +354,7 @@ def rabbitmq():
 
 @task
 def full():
-    print(env.project.home, env.project.src_dir)
     src_path = os.path.join(env.project.home, env.project.src_dir)
-    print(src_path)
     env.src_path = src_path
 
     ##require_packages(os.path.join(os.path.dirname(DOCS_DIR), 'apt_web.txt'))
@@ -386,7 +385,6 @@ def full():
             user=env.project.username
         )
     copy_settings(src_path)
-    print('copydone')
     make_links(src_path)
 
     make_static(src_path)

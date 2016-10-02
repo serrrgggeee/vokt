@@ -141,18 +141,17 @@ USE_TZ = True
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(
     os.path.dirname(__file__), '../').replace('\\', '/')
-print('f',MEDIA_ROOT)
 
 STATIC_URL = '/static/'
 
 
 STATIC_ROOT = os.path.join(
-    os.path.dirname(__file__), '../static').replace('\\', '/')
+    os.path.dirname(__file__), '../../static').replace('\\', '/')
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
-print(STATIC_ROOT)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, "static"),
+# )
+#print(STATIC_ROOT)
 
 CKEDITOR_UPLOAD_PATH = os.path.join('uploads/')
 CKEDITOR_IMAGE_BACKEND = "pillow"
