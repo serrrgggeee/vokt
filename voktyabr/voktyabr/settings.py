@@ -147,11 +147,11 @@ STATIC_URL = '/static/'
 
 
 STATIC_ROOT = os.path.join(
-    os.path.dirname(__file__), '../../static').replace('\\', '/')
+    os.path.dirname(__file__), '../static').replace('\\', '/')
 
 STATICFILES_DIRS = (
     os.path.join(os.path.dirname(__file__),
-                 '../../static_outer').replace('\\', '/'),
+                 '../static_outer').replace('\\', '/'),
 )
 print(STATIC_ROOT)
 
