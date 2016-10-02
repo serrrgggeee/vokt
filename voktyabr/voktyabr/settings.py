@@ -150,7 +150,6 @@ STATIC_ROOT = os.path.join(
     os.path.dirname(__file__), '../static').replace('\\', '/')
 
 STATICFILES_DIRS = (
-
     os.path.join(BASE_DIR, "static"),
 )
 print(STATIC_ROOT)
