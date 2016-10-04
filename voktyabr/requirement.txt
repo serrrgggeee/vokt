@@ -17,6 +17,7 @@ django-suit-redactor==0.0.4
 # REST
 
 # Deploy
+uwsgi
 
 # dbmailer
 

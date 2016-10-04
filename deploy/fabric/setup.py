@@ -78,7 +78,7 @@ def postgresql():
     fabtools.require.deb.source('pgdg', 'http://apt.postgresql.org/pub/repos/apt/', 'precise-pgdg', 'main')
     fabtools.require.postgres.server(version='9.5')
     #fabtools.require.postgres.user('serrrgggeee', 'Tktyf,firjdf1')
-    fabtools.require.postgres.database('vokt', owner='postgres')
+    fabtools.require.postgres.database('vokt', owner='serrrgggeee')
 
 
 def mongodb():
@@ -219,7 +219,9 @@ def move_project(src_path):
     if fabtools.files.is_dir(pjt):
         with settings(warn_only=True):
             sudo('mv %s %s' % (pjt, old))
+    print(src_path, 'pjt', pjt)
     sudo('mv %s %s' % (src_path, pjt))
+
     return pjt, old
 
 
@@ -358,16 +360,16 @@ def full():
     env.src_path = src_path
 
     require_packages(os.path.join(os.path.dirname(DOCS_DIR), 'apt_web.txt'))
-
+    #
     project_user()
-
+    #
     python()
 
-    ##nginx()
+    nginx()
     # pgbouncer()
     postgresql()
     #redis()
-    ##supervisord()
+    supervisord()
     ## mongodb()
     #rabbit()
 
@@ -394,12 +396,12 @@ def full():
 
     clean_project(old)
 
-    sudo('/etc/init.d/server.voktyabr restart')
+    sudo('/etc/init.d/server.vokt restart')
 
-    run('crontab /home/voktyabr/voktyabr/crontab')
+    run('crontab /home/root/voktyabr/voktyabr/crontab')
 
-    fabtools.require.files.directory('/home/voktyabr/tmp')
-    sudo('chown voktyabr:voktyabr /home/voktyabr/tmp')
+    fabtools.require.files.directory('/home/root/voktyabr/tmp')
+    sudo('chown voktyabr:voktyabr /home/root/voktyabr/tmp')
 
     #restart_celery()
 
@@ -416,7 +418,7 @@ def web_celery():
     make_persistent()
     make_static(src_path)
 
-    sudo('/etc/init.d/server.voktyabr restart')
+    sudo('/etc/init.d/server.vokt restart')
 
     restart_celery()
 
@@ -432,7 +434,7 @@ def web():
     copy_settings(src_path)
     make_static(src_path)
 
-    sudo('/etc/init.d/server.voktyabr restart')
+    sudo('/etc/init.d/server.vokt restart')
 
 
 @task
