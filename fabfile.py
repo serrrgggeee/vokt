@@ -4,6 +4,9 @@ import deploy.fabric.setup as setup
 
 from fabric.utils import _AttributeDict
 
+from fabric.context_managers import shell_env
+
+
 import os
 
 env.project = _AttributeDict({
@@ -36,8 +39,7 @@ env.project.pip = os.path.join(env.project.home, env.project.venv,
                                'bin', 'pip')
 env.project.python = os.path.join(env.project.home, env.project.venv,
                                   'bin', 'python')
-PGHOST='localhost'
-run('export PGHOST=localhost')
+
 
 def co_branch():
     local('git checkout {branch}'.format(branch=env.project.src_branch))

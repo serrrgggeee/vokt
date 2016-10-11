@@ -9,8 +9,8 @@ import fabtools.require.files as rfiles
 # from fabtools.require.redis import instance as redis_instance
 from deploy.fabric.redis import instance as redis_instance
 
-from fabric.contrib.files import exists
-
+from fabric.contrib.files import exists, append
+from fabric.context_managers import shell_env
 def sudo_project(*args, **kwargs):
     kwargs.update({
         'user': env.project.username,
@@ -77,7 +77,7 @@ def postgresql():
     sudo('wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | apt-key add -')
     fabtools.require.deb.source('pgdg', 'http://apt.postgresql.org/pub/repos/apt/', 'precise-pgdg', 'main')
     fabtools.require.postgres.server(version='9.5')
-    #fabtools.require.postgres.user('serrrgggeee', 'Tktyf,firjdf1')
+    fabtools.require.postgres.user('serrrgggeee', 'Tktyf,firjdf1')
     fabtools.require.postgres.database('vokt', owner='serrrgggeee')
 
 
@@ -123,6 +123,7 @@ def python():
 
     # Clean old installation
     if fabtools.files.is_dir(path):
+        print('remove')
         sudo('rm -rf %s' % path)
 
     # Cloning:
@@ -195,7 +196,6 @@ def copy_project(src_path):
     with settings(hide('stdout'), warn_only=True):
         sudo('rm -rf %s' % copied_src)
     sudo_project('cp -R %s %s' % (src_path, copied_src))
-    print('hier')
     return copied_src
 
 
@@ -207,7 +207,9 @@ def migrate_db(src_path):
 
 def migrate_db2(src_path):
     with cd(src_path):
-        manage('migrate')
+        with shell_env(PGHOST='localhost'):
+            print('migration')
+            manage('migrate')
 
 
 def move_project(src_path):
@@ -332,6 +334,11 @@ def phantomjs():
     sudo('npm install -g phantomjs')
 
 
+# def bash_edit():
+#     filename =  '/root/.bashrc'
+#     text = 'export PGHOST="localhost"'
+#     append(filename, text, use_sudo=True, partial=False, escape=True, shell=False)
+
 #####################
 
 @task
@@ -366,7 +373,7 @@ def full():
     python()
 
     nginx()
-    # pgbouncer()
+    ## pgbouncer()
     postgresql()
     #redis()
     supervisord()
@@ -398,10 +405,10 @@ def full():
 
     sudo('/etc/init.d/server.vokt restart')
 
-    run('crontab /home/root/voktyabr/voktyabr/crontab')
+    ##run('crontab /home/root/voktyabr/voktyabr/crontab')
 
-    fabtools.require.files.directory('/home/root/voktyabr/tmp')
-    sudo('chown voktyabr:voktyabr /home/root/voktyabr/tmp')
+    #3fabtools.require.files.directory('/home/root/voktyabr/tmp')
+    ##sudo('chown root:root /home/root/voktyabr/tmp')
 
     #restart_celery()
 
@@ -459,3 +466,8 @@ def complete():
 def celery():
     redis()
     supervisord()
+
+#
+# @task
+# def bash_edit_task():
+#     bash_edit()
