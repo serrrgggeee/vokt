@@ -457,7 +457,7 @@ def complete():
     make_static(src_path)
     migrate_db2(src_path)
 
-    sudo('/etc/init.d/server.voktyabr restart')
+    sudo('/etc/init.d/server.vokt restart')
 
     restart_celery()
 
