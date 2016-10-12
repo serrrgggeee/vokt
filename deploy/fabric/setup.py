@@ -123,7 +123,6 @@ def python():
 
     # Clean old installation
     if fabtools.files.is_dir(path):
-        print('remove')
         sudo('rm -rf %s' % path)
 
     # Cloning:
@@ -385,6 +384,7 @@ def full():
     #phantomjs()
 
     src_path = env.src_path = copy_project(src_path)
+    print('src_path', src_path)
     env.project.manage = os.path.join(src_path, 'voktyabr', 'manage.py')
     venv = os.path.join(env.project.home, env.project.venv)
     with fabtools.python.virtualenv(venv):
