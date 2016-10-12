@@ -11,7 +11,7 @@ import os
 
 env.project = _AttributeDict({
     'name': 'serrrgggeee',
-    'username': 'root',  # group assumed to be the same
+    'username': 'serrrgggeee',  # group assumed to be the same
     'src_repo': 'git@bitbucket.org:serrrgggeee/voktyabr.git',
     'reqs': 'requirement.txt',
     'src_dir': 'source_tmp',  # rel from home

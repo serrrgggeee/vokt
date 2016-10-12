@@ -38,3 +38,5 @@ xvfb
 firefox
 pgbouncer
 redis-tools
+
+sudo
