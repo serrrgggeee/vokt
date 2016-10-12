@@ -27,7 +27,8 @@ def manage(cmd):
 
 def update_code(src_path):
     with cd(src_path):
-        sudo_project('git pull')
+
+        sudo_project('git pull origin master')
         sudo_project('git checkout %s' % env.project.src_branch)
 
 
