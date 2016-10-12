@@ -270,3 +270,8 @@ SUIT_CONFIG = {
         ]},
     )
 }
+
+try:
+    from voktyabr.local_settings import *
+except ImportError as e:
+    pass
