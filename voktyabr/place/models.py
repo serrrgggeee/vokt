@@ -19,7 +19,7 @@ class Place(MPTTModel):
     #description = RichTextField()
     #description = HTMLField(verbose_name='Описание')
     pub_date = models.DateTimeField('Срок размещения в днях',default=now)
-    image_description = models.ImageField(upload_to='/description',
+    image_description = models.ImageField(upload_to='media/description',
                               verbose_name='Image', blank=True, null=True)
 
     class MPTTMeta:
