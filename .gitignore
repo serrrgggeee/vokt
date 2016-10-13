@@ -2,10 +2,10 @@
 .idea/*
 .env/*
 static/*
-optostack/optostack/local_settings.py
-optostack/log/*txt*
-optostack/emails/*.log
-optostack/debug.py
+voktyabr/voktyabr/local_settings.py
+voktyabr/log/*txt*
+voktyabr/emails/*.log
+voktyabr/debug.py
 /media/*
 !/media/media.txt
 /selenium_errors/*
