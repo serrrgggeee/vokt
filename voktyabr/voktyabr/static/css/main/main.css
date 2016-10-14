@@ -132,5 +132,5 @@
 }
 
 .slider img {
-    height: 740px;
+    height: 740px !important;
 }
