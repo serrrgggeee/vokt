@@ -126,3 +126,7 @@
     color: #ffff03;
     border-radius: 10px;
 }
+
+.single_place img {
+    height: 150px;
+}

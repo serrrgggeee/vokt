@@ -374,7 +374,7 @@ def full():
 
     nginx()
     ## pgbouncer()
-    postgresql()
+    #postgresql()
     #redis()
     supervisord()
     ## mongodb()
@@ -403,8 +403,8 @@ def full():
     pjt, old = move_project(src_path)
 
     clean_project(old)
-
-    sudo('/etc/init.d/server.vokt restart')
+    with shell_env(PGHOST='localhost'):
+        sudo('/etc/init.d/server.vokt restart')
 
     ##run('crontab /home/root/voktyabr/voktyabr/crontab')
 

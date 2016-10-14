@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'place',
     'main',
     'voktyabr',
+    'sorl.thumbnail'
 
 ]
 
@@ -63,6 +64,7 @@ MIDDLEWARE_CLASSES = [
 ]
 
 ROOT_URLCONF = 'voktyabr.urls'
+
 
 TEMPLATES = [
     {
@@ -148,11 +150,6 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(
     os.path.dirname(__file__), '../../static').replace('\\', '/')
-
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, "static"),
-# )
-#print(STATIC_ROOT)
 
 CKEDITOR_UPLOAD_PATH = os.path.join('uploads/')
 CKEDITOR_IMAGE_BACKEND = "pillow"
