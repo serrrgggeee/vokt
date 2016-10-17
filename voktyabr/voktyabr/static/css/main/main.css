@@ -127,10 +127,7 @@
     border-radius: 10px;
 }
 
-/*.single_place img {*/
-    /*height: 150px;*/
-/*}*/
-
-/*.slider img {*/
-    /*height: 740px !important;*/
-/*}*/
+.thumb{
+    padding-bottom: 10px;
+    border: solid 6px beige;
+}

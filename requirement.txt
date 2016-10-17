@@ -1,5 +1,5 @@
 # Core
-Django==1.10
+Django==1.10.2
 psycopg2
 Pillow==3.3.1
 
@@ -22,3 +22,6 @@ uwsgi
 # dbmailer
 
 # Other
+
+# image
+easy-thumbnails==2.3

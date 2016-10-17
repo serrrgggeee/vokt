@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'place',
     'main',
     'voktyabr',
-    'sorl.thumbnail'
+    'easy_thumbnails',
 
 ]
 
