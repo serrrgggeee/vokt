@@ -1,3 +1,8 @@
+body {
+    font-family: initial;
+    font-style: oblique;
+}
+
 .container-fluid{max-width: 1500px}
 .header-top.lead {
     margin-bottom: 7px;
@@ -11,9 +16,11 @@
     margin: 0 auto;
 }
 .main .left-side {
-    background-color: rgba(0, 0, 0, 0.56);
-    border-radius: 71px;
+    border-radius: 7px;
     padding: 20px 20px 20px 0px;
+}
+.place{
+    background-color: beige;
 }
 .main .right-side a {color: #000;}
 .advantage{margin-top: 10px;}
@@ -70,7 +77,7 @@
 
 .slider img {
 
-    border-radius: 30px;
+    border-radius: 3px;
 }
 .slider {
 
@@ -127,7 +134,12 @@
     border-radius: 10px;
 }
 
-.thumb{
+.image{
     padding-bottom: 10px;
     border: solid 6px beige;
+}
+
+.right-side{
+    padding-left: 20px;
+    background-color: #f6f6f6;
 }
