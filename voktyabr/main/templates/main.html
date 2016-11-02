@@ -16,24 +16,40 @@
                 {% for node in  categories %}
                     {% if forloop.first %}
                          <div class="item active">
-                            <a href="/single_place/{{node.id}}">
-                                <!--<img class="col-md-12" alt="Logo" src="{{ node.image_description.url }}" width="750" height="500">-->
-                                <img src="{% thumbnail node.image_description 1050x800 crop %}" alt="" />
+                             {% if not node.image_description %}
+                                <a href="/single_place/{{node.id}}">
 
-                                <div class="col-md-10 col-md-offset-1">
-                                    <p class="text-center labale">{{node.name}} {{node.type_place}}</p>
-                                </div>
-                            </a>
+                                    <img  src="http://placehold.it/1050x800&text={{ node.name }}" alt="{{ node.name }}" title="{{ node.name }}" class="img-responsive">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <p class="text-center labale">{{node.name}} {{node.type_place}}</p>
+                                    </div>
+                                </a>
+                             {% else %}
+                                <a href="/single_place/{{node.id}}">
+                                    <img src="{% thumbnail node.image_description 1050x800 crop %}" alt="" />
+                                     <div class="col-md-10 col-md-offset-1">
+                                         <p class="text-center labale">{{node.name}} {{node.type_place}}</p>
+                                     </div>
+                                </a>
+                             {% endif %}
                         </div>
                     {% else %}
                     <div class="item">
-                        <a href="/single_place/{{node.id}}">
-                            <!--<img class="col-md-12"  alt="Logo" src="{{ node.image_description.url }}" width="750" height="500">-->
-                            <img src="{% thumbnail node.image_description 1050x800 crop %}" alt="" />
-                            <div class="col-md-10 col-md-offset-1">
-                                <p class="text-center labale">{{node.type_place}} {{node.name}}</p>
-                            </div>
-                        </a>
+                        {% if not node.image_description %}
+                            <a href="/single_place/{{node.id}}">
+                                <img src="http://placehold.it/1050x800&text={{ node.name }}" alt="{{ node.name }}" title="{{ node.name }}" class="img-responsive">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <p class="text-center labale">{{node.type_place}} {{node.name}} </p>
+                                </div>
+                            </a>
+                        {% else %}
+                            <a href="/single_place/{{node.id}}">
+                                <img src="{% thumbnail node.image_description 1050x800 crop %}" alt="" />
+                                <div class="col-md-10 col-md-offset-1">
+                                    <p class="text-center labale">{{node.type_place}} {{node.name}}</p>
+                                </div>
+                            </a>
+                        {% endif %}
                     </div>
 
                     {% endif %}
