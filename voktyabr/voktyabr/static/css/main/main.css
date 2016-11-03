@@ -1,6 +1,10 @@
+@import "http://webfonts.ru/import/ubuntu.css";
+@import "http://webfonts.ru/import/roboto.css";
+
 body {
-    font-family: initial;
+    font-family: Ubuntu;
     font-style: oblique;
+    color: rgba(12, 12, 11, 0.76);
 }
 
 .container-fluid{max-width: 1500px}
@@ -18,9 +22,10 @@ body {
 .main .left-side {
     border-radius: 7px;
     padding: 20px 20px 20px 0px;
+    background-color: rgba(247, 249, 251, 0.71);
 }
 .place{
-    background-color: beige;
+    /*background-color: beige;*/
 }
 .main .right-side a {color: #000;}
 .advantage{margin-top: 10px;}
@@ -90,7 +95,7 @@ body {
 }
 
 .place a.parent {
-    color: #0c0c0b;
+    color: rgba(12, 12, 11, 0.76);
     font-size: 22px;
 }
 
@@ -100,37 +105,36 @@ body {
 }
 
 .place  li:hover a.children {
-    color: #ffff03;
+    /*color: #ffff03;*/
     text-decoration: none;
 }
 
 .place li.child {
     margin-top: 2px;
-    background-color: #ffff03;
+    background-color: #f9f9f0;
     border-radius: 10px;
-    color: #000;
-    padding: 10px 96px 9px 41px;
+    padding: 10px 5px 9px 14px;
 }
 
 .place li.child:hover {
     margin-top: 2px;
-    background-color: #000;
-    color: #ffff03;
+    background-color: rgba(0, 0, 0, 0.09);
+    /*color: rgba(255, 144, 154, 0);*/
     border-radius: 10px;
     padding: 10px 96px 9px 41px;
 }
 
 .labale{
-    background-color: #ffff03;
+    background-color: #f9f9f0;
     padding: 10px 10px 10px 10px;
-    color: #000;
+    /*color: #000;*/
     border-radius: 10px;
 }
 
 .labale:hover{
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.09);
     padding: 10px 10px 10px 10px;
-    color: #ffff03;
+    /*color: #ffff03;*/
     border-radius: 10px;
 }
 
@@ -141,5 +145,22 @@ body {
 
 .right-side{
     padding-left: 20px;
-    background-color: #f6f6f6;
+    background-color: rgba(246, 246, 246, 0.56);;
+}
+
+.single_place{
+
+}
+
+.single_place a{
+   color: rgba(37, 56, 115, 0.94) !important;
+}
+
+.single_place p{
+   font-style: normal;
+    color: rgba(12, 12, 11, 0.64);
+}
+
+.contact-footer{
+    float: right;
 }

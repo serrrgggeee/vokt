@@ -19,14 +19,14 @@
                              {% if not node.image_description %}
                                 <a href="/single_place/{{node.id}}">
 
-                                    <img  src="http://placehold.it/1050x800&text={{ node.name }}" alt="{{ node.name }}" title="{{ node.name }}" class="img-responsive">
+                                    <img  src="http://placehold.it/1050x600&text={{ node.name }}" alt="{{ node.name }}" title="{{ node.name }}" class="img-responsive">
                                     <div class="col-md-10 col-md-offset-1">
                                         <p class="text-center labale">{{node.name}} {{node.type_place}}</p>
                                     </div>
                                 </a>
                              {% else %}
                                 <a href="/single_place/{{node.id}}">
-                                    <img src="{% thumbnail node.image_description 1050x800 crop %}" alt="" />
+                                    <img src="{% thumbnail node.image_description 1050x600 crop %}" alt="" />
                                      <div class="col-md-10 col-md-offset-1">
                                          <p class="text-center labale">{{node.name}} {{node.type_place}}</p>
                                      </div>
@@ -37,14 +37,14 @@
                     <div class="item">
                         {% if not node.image_description %}
                             <a href="/single_place/{{node.id}}">
-                                <img src="http://placehold.it/1050x800&text={{ node.name }}" alt="{{ node.name }}" title="{{ node.name }}" class="img-responsive">
+                                <img src="http://placehold.it/1050x600&text={{ node.name }}" alt="{{ node.name }}" title="{{ node.name }}" class="img-responsive">
                                 <div class="col-md-10 col-md-offset-1">
                                     <p class="text-center labale">{{node.type_place}} {{node.name}} </p>
                                 </div>
                             </a>
                         {% else %}
                             <a href="/single_place/{{node.id}}">
-                                <img src="{% thumbnail node.image_description 1050x800 crop %}" alt="" />
+                                <img src="{% thumbnail node.image_description 1050x600 crop %}" alt="" />
                                 <div class="col-md-10 col-md-offset-1">
                                     <p class="text-center labale">{{node.type_place}} {{node.name}}</p>
                                 </div>

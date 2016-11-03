@@ -7,7 +7,7 @@
 </head>
 <body>
 {% load default %}
-<header class="header">
+
 <div class="container-fluid">
     <div class="row header-top">
         <div class="col-md-3">
@@ -15,20 +15,9 @@
                 <a href="/"><img alt="Logo" src="/static/theme/images/logo.png" width="200" height="90"></a>
             </div>
         </div>
-        <div class="col-md-5 text-center">
+        <div class="col-md-5 col-md-offset-1 text-center">
             <h1>ОКТЯБРЬСКИЙ РАЙОН</h1>
             <p>места, природа новоси</p>
-        </div>
-        <div class="col-md-4"  style="font-size: 16px;">
-            <div class="navbar-header" style="margin-top: 16px;">
-                <p class="small">Есть предложения?:</p>
-                <p class="lead"><strong>8 961 057 74 99</strong></p>
-                <p class="underline">Звоните обсудим</p>
-            </div>
-            {% comment %}<!-- Cart in header -->
-            <div class="header-cart">
-                {% basket %}
-            </div>{% endcomment %}
         </div>
     </div>
     <div class="row">
@@ -58,7 +47,7 @@
 
     </div>
 </div>
-</header>
+
 <div class="container-fluid" xmlns="http://www.w3.org/1999/html">
     <div class="row main">
         <div class="col-md-3 left-side">
@@ -68,10 +57,10 @@
                     {% recursetree categories %}
                             {% if  node.is_root_node %}
 
-                                <li><a class="underline parent" href="/single_place/{{node.id}}">{{ node.name }}</a></li>
+                                <a class="underline parent" href="/single_place/{{node.id}}">{{ node.name }}</a>
                             {% endif %}
                             {% if not node.is_root_node %}
-                                <li class="child"><a class="children" href="/single_place/{{node.id}}">{{ node.name }}</a></li>
+                                <a class="children" href="/single_place/{{node.id}}"><li class="child">{{ node.name }}</li></a>
                             {% endif %}
                             {% if not node.is_leaf_node %}
                                 {{ children }}
