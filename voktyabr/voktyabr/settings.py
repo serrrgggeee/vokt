@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'main',
     'voktyabr',
     'easy_thumbnails',
+    'article',
 
 ]
 

@@ -1,13 +1,11 @@
 from django.contrib import admin
-from django.db import models
 from django.forms import ModelForm
+from django_mptt_admin.admin import DjangoMpttAdmin
 
 from .models import Place, Photo
 
-#from ckeditor_uploader.widgets import CKEditorUploadingWidget
-from django_mptt_admin.admin import DjangoMpttAdmin
-from redactor.widgets import RedactorEditor
 from suit_redactor.widgets import RedactorWidget
+
 
 class PageForm(ModelForm):
     class Meta:

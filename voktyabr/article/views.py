@@ -1,12 +1,12 @@
 from django.views.generic import TemplateView
-from .models import Place
+from .models import Article
 
 
-class SinglePlaceView(TemplateView):
-    template_name = 'place/single_place.html'
+class ArticleView(TemplateView):
+    template_name = 'article/article.html'
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
         id = kwargs.get('id', '')
-        data['single_place']=Place.objects.prefetch_related('photo').get(id=id)
+        data['article']=Article.objects.get(id=id)
         return data

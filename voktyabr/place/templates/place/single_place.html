@@ -18,12 +18,15 @@
                                 <a class="fancyimage" data-fancybox-group="group" href="{{photo.image.url}}">
 
                                 <!--<img class="img-responsive" width="250" height="250" alt="{{photo.name}}" src="{{photo.image.url }}" />-->
-                                <img class="img-responsive" src="{% thumbnail photo.image 250x250 crop %}" alt="" />
-                                {{photo.name}}
-                                </a>
+                                <img class="img-responsive" src="{% thumbnail photo.image 250x250 crop %}" alt="" /></a>
+                                {% if photo.article%}
+                                    <a href="/article/{{photo.article.pk}}/">{{photo.name}}</a>
+                                {% else%}
+                                    <a href="{{photo.image.url}}">{{photo.name}}</a>
+                                {% endif %}
                             </div>
                         </div>
-                    {%endfor%}
+                    {% endfor %}
 
             </div>
         </div>
