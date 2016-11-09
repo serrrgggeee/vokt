@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     #'ckeditor_uploader',
     #'tinymce',
     'suit_redactor',
-
+    'ckeditor',
+    'ckeditor_uploader',
     'place',
     'main',
     'voktyabr',
@@ -154,7 +155,7 @@ STATIC_ROOT = os.path.join(
 
 CKEDITOR_UPLOAD_PATH = os.path.join('uploads/')
 CKEDITOR_IMAGE_BACKEND = "pillow"
-CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+# CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 CKEDITOR_CONFIGS = {
     'default': {
         'skin': 'moono',
@@ -219,7 +220,6 @@ CKEDITOR_CONFIGS = {
             ]),
     }
 }
-
 
 REDACTOR_OPTIONS = {'removeStyles': True, 'lang': 'en'}
 REDACTOR_UPLOAD = 'media/redactor'

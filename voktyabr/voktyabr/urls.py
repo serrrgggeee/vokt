@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^', include('main.urls')),
     url(r'^single_place', include('place.urls')),
     url(r'^article', include('article.urls')),
-    #url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     #url(r'^redactor/', include('redactor.urls')),
     #url(r'^tinymce/', include('tinymce.urls')),
 ]

@@ -14,8 +14,6 @@ class Place(MPTTModel):
     show = models.BooleanField(default=False,  verbose_name='Отображать на сайте')
     first_order = models.BooleanField(default=False,  verbose_name='Первые в списке')
     description = models.TextField(verbose_name='Описание')
-    #description = RichTextField()
-    #description = HTMLField(verbose_name='Описание')
     pub_date = models.DateTimeField('Срок размещения в днях',default=now)
     image_description = models.ImageField(upload_to='main_page',
                               verbose_name='Image', blank=True, null=True)

@@ -6,7 +6,7 @@ Pillow==3.3.1
 # Batteries
 django-mptt==0.8.6
 django-mptt-admin
-django-ckeditor==5.1.0
+django-ckeditor==5.1.1
 django-redactor==0.2
 django-wysiwyg-redactor
 django-redactoreditor==1.2.10
