@@ -3,5 +3,5 @@ workon vkotyabrenv
 python manage.py runserver
 
 pip install -r requirement.txt
- fab -H 37.46.130.147 -u root web
+ fab -H 37.46.130.147 -u root web fab -H 37.46.130.147 -u root
  MF91WNk2CIP5
