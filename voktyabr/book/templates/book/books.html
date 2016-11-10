@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load mptt_tags thumbnail%}
+{% block content %}
+<div class="col-md-9 col-md-offset- right-side">
+    <div class="row single_place">
+        <div class="row single_place">
+            <div class="col-md-12">
+                <h1>{{single_place.name}}</h1>
+            </div>
+            <div class="col-md-12">
+                {{single_place.description | safe}}
+            </div>
+            {% recursetree BOOKS %}
+            {% if node.is_root_node %}
+            <div class="col-md-3">
+                {% if not node.image_book %}
+                <a href="/book/{{node.id}}/">
+                    <img src="http://placehold.it/300x200&text={{ node.name }}" alt="{{ node.name }}"
+                         title="{{ node.name }}" class="img-responsive">
+
+                    <div class="col-md-10 col-md-offset-1">
+                        <p class="text-center">{{node.name}}</p>
+                    </div>
+                </a>
+                {% else %}
+                <a href="/book/{{node.id}}/">
+                    <img src="{% thumbnail node.image_book 300x200 crop %}" alt=""/>
+
+                    <p class="text-center">{{node.name}}</p>
+
+                </a>
+                {% endif %}
+            </div>
+            {% endif %}
+            {% endrecursetree %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+

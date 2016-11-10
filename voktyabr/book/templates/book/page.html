@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load mptt_tags thumbnail%}
+{% block content %}
+<div class="col-md-9 col-md-offset- right-side">
+    <div class="row single_place">
+        <div class="row single_place">
+            <div class="col-md-12">
+                <h1>{{single_place.name}}</h1>
+            </div>
+            <div class="col-md-12">
+                    <h2 class="text-center">{{page.name}}</h2>
+                    {{page.description | safe}}
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
