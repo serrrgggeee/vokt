@@ -295,17 +295,7 @@ LOGGING = {
             'filename': '/tmp/tasks.log',
             'class': 'logging.handlers.TimedRotatingFileHandler',
             'when': 'W0',
-            # 'encoding': 'utf-8'
-        },
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': '/tmp/debug.log',
-        },
-        'null': {
-            'level': logging.DEBUG,
-            'class': 'logging.FileHandler',
-            'filename': '/tmp/debug_system.log',
+             'encoding': 'utf-8'
         },
         'debug_log_logfile': {
             'formatter': 'normal',
@@ -313,25 +303,15 @@ LOGGING = {
             'filename': '/tmp/debug_logging.log',
             'class': 'logging.handlers.TimedRotatingFileHandler',
             'when': 'W0',
-            # 'encoding': 'utf-8'
+             'encoding': 'utf-8'
         },
     },
 
     'loggers': {
-        'django': {
-            'handlers': ['null'],
-            'propagate': True,
-            'level': logging.DEBUG,
-        },
         'tasks': {
             'handlers': ['tasks_logfile'],
             'level': logging.DEBUG,
             'propagate': False,
-        },
-        'django.request': {
-            'handlers': ['file'],
-            'level': 'ERROR',
-            'propagate': True,
         },
         'debug_log': {
             'handlers': ['debug_log_logfile'],

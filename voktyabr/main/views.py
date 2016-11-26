@@ -1,6 +1,5 @@
-from django.shortcuts import render
-from django.views.generic import View, TemplateView
-from place.models import Place
+from django.views.generic import  TemplateView
+
 
 class ListOktMainView(TemplateView):
     template_name = 'main.html'
