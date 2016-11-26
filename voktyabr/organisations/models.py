@@ -5,15 +5,16 @@ from django.contrib.auth.models import User
 from mptt.models import MPTTModel, TreeForeignKey
 
 
-class Book(MPTTModel):
-    name = models.CharField('Название книги',  max_length=128)
+class Organisation(MPTTModel):
+    slug = models.CharField('Slug организации',  max_length=128, null=True, blank=True,)
+    name = models.CharField('Название организации',  max_length=128)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True)
-    type_book = models.CharField('Тип книги',  max_length=128, blank=True, null=True)
+    type_organisation = models.CharField('Тип организации',  max_length=128, blank=True, null=True)
     show = models.BooleanField(default=False,  verbose_name='Отображать на сайте')
     order = models.IntegerField(verbose_name='номер цтраницы')
     description = models.TextField(verbose_name='Описание')
     pub_date = models.DateTimeField('Срок размещения в днях', default=now)
-    image_book = models.ImageField(upload_to='organisation', verbose_name='image_book', blank=True, null=True)
+    image_organisation = models.ImageField(upload_to='organisation', verbose_name='image_organisation', blank=True, null=True)
     user = models.ForeignKey(User, blank=True, null=True)
 
     class MPTTMeta:
@@ -21,5 +22,3 @@ class Book(MPTTModel):
 
     def __str__(self):
         return self.name
-
-

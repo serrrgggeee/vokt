@@ -7,11 +7,14 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('main.urls')),
-    url(r'^single_place', include('place.urls')),
+
+
     url(r'^article', include('article.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^book', include('book.urls')),
+    url(r'^organisation', include('organisations.urls')),
+    url(r'^', include('place.urls')),
+    url(r'^$', include('main.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

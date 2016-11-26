@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import logging
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'article',
     'book',
+    'organisations',
 
 ]
 
@@ -270,6 +272,76 @@ SUIT_CONFIG = {
     )
 }
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+
+    'formatters': {
+        'verbose': {
+            'format': '[%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d] %(message)s'
+        },
+        'normal': {
+            'format': '[%(levelname)s %(asctime)s %(module)s] %(message)s'
+        },
+        'simple': {
+            'format': '[%(levelname)s %(asctime)s] %(message)s'
+        },
+    },
+
+    'handlers': {
+        'tasks_logfile': {
+            'formatter': 'normal',
+            'level': logging.DEBUG,
+            'filename': '/tmp/tasks.log',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'when': 'W0',
+            # 'encoding': 'utf-8'
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '/tmp/debug.log',
+        },
+        'null': {
+            'level': logging.DEBUG,
+            'class': 'logging.FileHandler',
+            'filename': '/tmp/debug_system.log',
+        },
+        'debug_log_logfile': {
+            'formatter': 'normal',
+            'level': logging.DEBUG,
+            'filename': '/tmp/debug_logging.log',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'when': 'W0',
+            # 'encoding': 'utf-8'
+        },
+    },
+
+    'loggers': {
+        'django': {
+            'handlers': ['null'],
+            'propagate': True,
+            'level': logging.DEBUG,
+        },
+        'tasks': {
+            'handlers': ['tasks_logfile'],
+            'level': logging.DEBUG,
+            'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+        'debug_log': {
+            'handlers': ['debug_log_logfile'],
+            'level': logging.DEBUG,
+            'propagate': False,
+        },
+
+    }
+}
+LOG_DIRECTORY = '/tmp'
 try:
     from voktyabr.local_settings import *
 except ImportError as e:

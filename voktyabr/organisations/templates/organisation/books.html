@@ -15,7 +15,7 @@
             <div class="col-md-3">
                 {% if not node.image_book %}
                 <a href="/book/{{node.id}}/">
-                    <img class="img-responsive center-block" src="http://placehold.it/300x200&text={{ node.name }}" alt="{{ node.name }}"
+                    <img src="http://placehold.it/300x200&text={{ node.name }}" alt="{{ node.name }}"
                          title="{{ node.name }}" class="img-responsive">
 
                     <div class="col-md-10 col-md-offset-1">
@@ -24,7 +24,7 @@
                 </a>
                 {% else %}
                 <a href="/book/{{node.id}}/">
-                    <img class="img-responsive center-block" src="{% thumbnail node.image_book 280x200  crop='center' %}" alt=""/>
+                    <img src="{% thumbnail node.image_book 300x200 crop %}" alt=""/>
 
                     <p class="text-center">{{node.name}}</p>
 
