@@ -13,7 +13,7 @@ urlpatterns = [
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^book', include('book.urls')),
     url(r'^organisation', include('organisations.urls')),
-    url(r'^', include('place.urls')),
+    url(r'^(?P<id>\d+)/', include('place.urls')),
     url(r'^$', include('main.urls')),
 ]
 
