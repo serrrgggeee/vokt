@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'meta',
     'djangoseo',
 
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -157,6 +158,7 @@ MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 
+SITE_ID = 1
 
 STATIC_ROOT = os.path.join(
     os.path.dirname(__file__), '../../static').replace('\\', '/')

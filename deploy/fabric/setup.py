@@ -209,6 +209,7 @@ def migrate_db2(src_path):
     with cd(src_path):
         with shell_env(PGHOST='localhost'):
             print('migration')
+            manage('makemigrations djangoseo')
             manage('migrate')
 
 
