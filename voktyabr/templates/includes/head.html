@@ -2,12 +2,7 @@
 
 
 {% load meta seo %}
-    {% get_metadata %}
     {% get_metadata as djangoseo %}
-<!--
-    Show title, description, keywords from meta.html (meta app), if empty value, show from get_metadata (djangoseo app),
-    if empty ==> show tags from this template
--->
     {% if not meta.title and djangoseo.title.value %}
         {{ djangoseo.title }}
     {% else %}

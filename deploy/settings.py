@@ -17,8 +17,8 @@
 # SERVER_EMAIL = "optostack@nekidaem.ru"
 # DEFAULT_FROM_EMAIL = SERVER_EMAIL
 
-DEBUG = False
-TEMPLATE_DEBUG = False
+DEBUG = True
+TEMPLATE_DEBUG = True
 
 COMPRESS_ENABLED = True
 
