@@ -1,9 +1,10 @@
-{% load mptt_tags %}
+{% load mptt_tags seo %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     {% include 'includes/head.html' %}
     {% block inline_css %}{% endblock %}
+    {% block title %}<title>{{seo_title}}</title>{% endblock %}
 </head>
 <body>
 {% load default %}
@@ -16,8 +17,12 @@
             </div>
         </div>
         <div class="col-md-5 col-md-offset-1 text-center">
-            <h1>ОКТЯБРЬСКИЙ РАЙОН</h1>
-            <p>места, природа новоси</p>
+            {% get_metadata as djangoseo %}
+                {% if djangoseo.heading.value %}
+                    {{ djangoseo.heading }}
+                {% else %}
+                    <h1>Фрукты и овощи оптом</h1>
+                {% endif %}
         </div>
     </div>
     <div class="row">

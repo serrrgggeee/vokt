@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'mptt',
     #'redactor',
     'django_mptt_admin',
@@ -49,11 +50,15 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'place',
     'main',
+    'base',
     'voktyabr',
     'easy_thumbnails',
     'article',
     'book',
     'organisations',
+    'chunks',
+    'meta',
+    'djangoseo',
 
 ]
 

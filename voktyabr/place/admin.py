@@ -4,15 +4,18 @@ from django_mptt_admin.admin import DjangoMpttAdmin
 from django.db import models
 
 from .models import Place, Photo
-
+from djangoseo.admin import register_seo_admin
 from suit_redactor.widgets import RedactorWidget
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
+from base.seo import MyMetadata
 
+register_seo_admin(admin.site, MyMetadata)
 
 class CKEditorAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': CKEditorUploadingWidget}
     }
+
 
 
 class PageForm(ModelForm):
