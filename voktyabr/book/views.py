@@ -17,7 +17,7 @@ class BookView(TemplateView):
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
         id = kwargs.get('id', '')
-        data['pages'] = Book.objects.filter(parent_id=id).order_by('order')
+        data['pages'] = Book.objects.filter(parent_id=id, show=True).order_by('order')
         return data
 
 
@@ -28,6 +28,6 @@ class PageView(TemplateView):
         data = super().get_context_data(**kwargs)
         id = kwargs.get('id', '')
         print(id)
-        data['page'] = Book.objects.get(pk=id)
+        data['page'] = Book.objects.get(pk=id, show=True)
         return data
 

@@ -9,7 +9,7 @@ class OrganisationView(TemplateView):
     def get_context_data(self, **kwargs):
         slug = kwargs.get('slug', '')
         try:
-            organisation = Organisation.objects.get(slug=slug)
+            organisation = Organisation.objects.get(slug=slug, show=True)
         except Organisation.DoesNotExist:
             organisation = ''
         context = super().get_context_data(**kwargs)
@@ -23,7 +23,7 @@ class OrganisationPageView(TemplateView):
     def get_context_data(self, **kwargs):
         id = kwargs.get('id', '')
         try:
-            organisation = Organisation.objects.get(id=id)
+            organisation = Organisation.objects.get(id=id, show=True)
         except Organisation.DoesNotExist:
             organisation = ''
         context = super().get_context_data(**kwargs)

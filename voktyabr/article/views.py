@@ -8,5 +8,5 @@ class ArticleView(TemplateView):
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
         id = kwargs.get('id', '')
-        data['article']=Article.objects.get(id=id)
+        data['article'] = Article.objects.get(id=id, show=True)
         return data

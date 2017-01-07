@@ -8,5 +8,5 @@ class SinglePlaceView(TemplateView):
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
         id = kwargs.get('id', '')
-        data['single_place']=Place.objects.prefetch_related('photo').get(id=id)
+        data['single_place']=Place.objects.prefetch_related('photo').get(id=id, show=True)
         return data
