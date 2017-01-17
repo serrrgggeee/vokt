@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load mptt_tags thumbnail%}
-{% block title %}<title>{{single_place.seo_title|default:"Октябрьский район Волгоградская область"}}</title>{% endblock %}
+{% block title %}<title>{{page.seo_title|default:"Октябрьский район Волгоградская область"}}</title>{% endblock %}
 {% block content %}
 <div class="col-md-12 col-md-offset- right-side">
     <div class="row single_place">
@@ -9,6 +9,7 @@
                 <h1>{{single_place.name}}</h1>
             </div>
             <div class="col-md-12">
+
                     <h2 class="text-center">{{page.name}}</h2>
                     {{page.description | safe}}
 

@@ -4,8 +4,10 @@ from django.contrib.auth.models import User
 
 from mptt.models import MPTTModel, TreeForeignKey
 
+from meta.models import ModelMeta
 
-class Book(MPTTModel):
+
+class Book(MPTTModel, ModelMeta):
     name = models.CharField('Название книги',  max_length=128)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True)
     type_book = models.CharField('Тип книги',  max_length=128, blank=True, null=True)
@@ -24,4 +26,9 @@ class Book(MPTTModel):
     def __str__(self):
         return self.name
 
-
+    _metadata = {
+        # в шаблоне если use_title_tag возвращает True, то генерируется title
+        'use_title_tag': 'seo_title',
+        'title': 'seo_title',
+        'description': 'seo_description',
+    }

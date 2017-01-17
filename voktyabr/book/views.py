@@ -27,7 +27,6 @@ class PageView(TemplateView):
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
         id = kwargs.get('id', '')
-        print(id)
         data['page'] = Book.objects.get(pk=id, show=True)
         return data
 
