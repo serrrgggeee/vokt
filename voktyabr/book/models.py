@@ -15,6 +15,8 @@ class Book(MPTTModel):
     pub_date = models.DateTimeField('Срок размещения в днях', default=now)
     image_book = models.ImageField(upload_to='organisation', verbose_name='image_book', blank=True, null=True)
     user = models.ForeignKey(User, blank=True, null=True)
+    seo_title = models.CharField(max_length=160, null=True, blank=True)
+    seo_description = models.CharField(max_length=160, null=True, blank=True)
 
     class MPTTMeta:
         order_insertion_by = ['order']
