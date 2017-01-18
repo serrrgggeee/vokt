@@ -3,6 +3,12 @@
 {% block title %}<title>{{page.seo_title|default:"Октябрьский район Волгоградская область"}}</title>{% endblock %}
 {% block content %}
 <div class="col-md-12 col-md-offset- right-side">
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" onclick="App.book_context_views('/book/ajax/{{page.parent.id}}/')" id="btn_book_context" data-toggle="modal" data-target="#myModal">
+  Содержание книги
+</button>
+
+    {% include "book/modal/context.html" %}
     <div class="row single_place">
         <div class="row single_place">
             <div class="col-md-12">

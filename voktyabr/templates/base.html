@@ -45,7 +45,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav  navbar-nav">
                   <li><a href="/" class="dropdown-toggle">ГЛАВНАЯ</a></li>
-                  <li><a href="/books/" class="dropdown-toggle">КНИГИ</a></li>
+                  <li><a href="/book/" class="dropdown-toggle">КНИГИ</a></li>
                   {% for organisation in ORGANISATIONS%}
                         <li><a href="/organisation/{{organisation.slug}}/" class="dropdown-toggle">{{organisation | upper}}</a></li>
                   {% endfor %}

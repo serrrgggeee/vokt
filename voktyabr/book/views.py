@@ -21,6 +21,16 @@ class BookView(TemplateView):
         return data
 
 
+class BookAjaxView(TemplateView):
+    template_name = 'book/ajax/book_ajax.html'
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        id = kwargs.get('id', '')
+        data['pages'] = Book.objects.filter(parent_id=id, show=True).order_by('order')
+        return data
+
+
 class PageView(TemplateView):
     template_name = 'book/page.html'
 

@@ -1,0 +1,16 @@
+<div class="col-md-12 col-md-offset- right-side">
+    <div class="row single_place">
+        <div class="row single_place">
+            <div class="col-md-12">
+                <h1>{{single_place.name}}</h1>
+            </div>
+            <div class="col-md-12">
+                    <!--<h2 class="text-center">ГАЛЕРЕЯ</h2>-->
+                    {% for page in pages %}
+                        <a href="/book/page/{{page.id}}/">{{page.name}}</a></br>
+                    {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
